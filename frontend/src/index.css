@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ THEME TOKENS ============ */
+@layer base {
+  :root, [data-theme="dark"] {
+    --surface: 10 10 12;         /* app background */
+    --elevated: 22 22 26;        /* cards */
+    --subtle: 30 30 36;          /* inputs, subtle panels */
+    --border: 38 38 44;          /* default borders */
+    --border-strong: 58 58 66;   /* hover borders */
+    --fg: 245 245 247;           /* primary text */
+    --muted: 161 161 170;        /* secondary text */
+    --soft: 113 113 122;         /* tertiary text */
+    --shadow-color: 0 0 0;
+  }
+  [data-theme="light"] {
+    --surface: 250 250 251;
+    --elevated: 255 255 255;
+    --subtle: 244 244 246;
+    --border: 226 226 232;
+    --border-strong: 200 200 210;
+    --fg: 24 24 27;
+    --muted: 82 82 92;
+    --soft: 130 130 140;
+    --shadow-color: 22 22 26;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-surface text-fg font-body antialiased;
+    background-image: var(--bg-mesh, none);
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  [data-theme="dark"] body {
+    --bg-mesh:
+      radial-gradient(1200px 600px at 15% -10%, rgba(16,185,129,0.08), transparent 60%),
+      radial-gradient(900px 500px at 85% -5%, rgba(139,92,246,0.07), transparent 60%),
+      radial-gradient(1000px 600px at 50% 110%, rgba(245,158,11,0.05), transparent 60%);
+  }
+  [data-theme="light"] body {
+    --bg-mesh:
+      radial-gradient(1000px 500px at 10% -10%, rgba(16,185,129,0.10), transparent 60%),
+      radial-gradient(800px 400px at 90% -5%, rgba(139,92,246,0.06), transparent 60%);
+  }
+
+  * { box-sizing: border-box; }
+
+  /* Selection */
+  ::selection { background: rgb(16 185 129 / 0.28); color: rgb(var(--fg)); }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar       { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--border-strong)); border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--soft)); }
+
+  /* Focus ring — accessible + on-brand */
+  :focus-visible {
+    outline: 2px solid rgb(16 185 129 / 0.85);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  h1,h2,h3,h4,h5 { @apply font-display tracking-tight; }
+}
+
+/* ============ COMPONENT LAYER ============ */
+@layer components {
+  /* Cards */
+  .qa-card {
+    @apply bg-elevated border border-border rounded-2xl shadow-inset-line;
+  }
+  .qa-card-hover {
+    @apply qa-card transition-all duration-200 hover:border-borderStrong hover:-translate-y-0.5 hover:shadow-card-hover;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm
+           transition-all duration-150 active:scale-[.97] select-none whitespace-nowrap
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+  .btn-green {
+    @apply btn bg-brand-500 hover:bg-brand-600 text-white shadow-glow-brand
+           hover:shadow-[0_0_50px_-8px_rgb(16_185_129_/_0.7)];
+  }
+  .btn-outline {
+    @apply btn border border-border bg-elevated hover:bg-subtle hover:border-borderStrong text-fg;
+  }
+  .btn-ghost {
+    @apply btn text-fg hover:bg-subtle;
+  }
+  .btn-yellow {
+    @apply btn bg-gold-500 hover:bg-gold-600 text-black shadow-glow-gold;
+  }
+  .btn-danger {
+    @apply btn bg-coral-500 hover:bg-coral-600 text-white;
+  }
+
+  /* Inputs */
+  .qa-input {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-subtle text-fg
+           placeholder:text-soft
+           focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/25
+           transition-all duration-150 text-sm;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide;
+  }
+  .badge-live      { @apply badge bg-brand-500/10 text-brand-500 border border-brand-500/25; }
+  .badge-upcoming  { @apply badge bg-blue-500/10 text-blue-400 border border-blue-500/25; }
+  .badge-completed { @apply badge bg-soft/15 text-soft border border-border; }
+  .badge-gold      { @apply badge bg-gold-500/10 text-gold-500 border border-gold-500/25; }
+
+  /* Semantic text helpers */
+  .prize-text {
+    @apply font-black;
+    background: linear-gradient(135deg, #fbbf24 0%, #f97316 60%, #fb7185 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .brand-text {
+    @apply font-black;
+    background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #fbbf24 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-label { @apply text-[11px] font-mono font-medium tracking-[0.2em] uppercase text-brand-500; }
+  .live-dot      { @apply inline-block w-2 h-2 rounded-full bg-brand-500 animate-pulse; }
+
+  /* Glass surface — used on sticky navbar */
+  .glass {
+    background: rgb(var(--surface) / 0.72);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border-color: rgb(var(--border) / 0.6);
+  }
+
+  /* Shimmer skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, rgb(var(--subtle)) 0%, rgb(var(--border)) 50%, rgb(var(--subtle)) 100%);
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded-lg;
+  }
+
+  /* Backward compat aliases (existing pages use these class names) */
+  .d11-card        { @apply qa-card; }
+  .d11-card-hover  { @apply qa-card-hover; }
+  .card            { @apply qa-card; }
+  .d11-input       { @apply qa-input; }
+  .input-field     { @apply qa-input; }
+  .btn-primary     { @apply btn-green; }
+  .btn-secondary   { @apply btn-outline; }
+}
+
+/* ============ LIGHT THEME COMPAT OVERRIDES ============
+   Existing pages use hardcoded dark-only palette (e.g. bg-[#0d0d0d],
+   text-white, border-[#2a2a2a], text-gray-400). Rather than rewriting
+   every page, we remap those hardcoded values to theme tokens whenever
+   the user is in light mode. Dark mode stays 100% unchanged.
+================================================================== */
+/* Backgrounds */
+[data-theme="light"] .bg-\[\#0d0d0d\]\/95,
+[data-theme="light"] .bg-\[\#0d0d0d\]\/80,
+[data-theme="light"] .bg-\[\#0d0d0d\]        { background-color: rgb(var(--surface)) !important; }
+[data-theme="light"] .bg-\[\#1a1a1a\]\/80,
+[data-theme="light"] .bg-\[\#1a1a1a\]\/50,
+[data-theme="light"] .bg-\[\#1a1a1a\]        { background-color: rgb(var(--elevated)) !important; }
+[data-theme="light"] .bg-\[\#1e1e1e\],
+[data-theme="light"] .bg-\[\#111\],
+[data-theme="light"] .bg-\[\#222\]                        { background-color: rgb(var(--subtle)) !important; }
+[data-theme="light"] .hover\:bg-\[\#222\]:hover,
+[data-theme="light"] .hover\:bg-\[\#1e1e1e\]:hover,
+[data-theme="light"] .hover\:bg-\[\#111\]:hover { background-color: rgb(var(--subtle)) !important; }
+[data-theme="light"] .bg-black\/30                                                          { background-color: rgb(var(--elevated) / 0.6) !important; }
+
+/* Borders */
+[data-theme="light"] .border-\[\#1a1a1a\],
+[data-theme="light"] .border-\[\#1e1e1e\],
+[data-theme="light"] .border-\[\#2a2a2a\],
+[data-theme="light"] .border-\[\#3a3a3a\]                                                   { border-color: rgb(var(--border)) !important; }
+[data-theme="light"] .hover\:border-\[\#3a3a3a\]:hover                                     { border-color: rgb(var(--border-strong)) !important; }
+
+/* Text — remap "white" text and gray-scales to theme tokens (scoped to page bodies, not brand chips) */
+[data-theme="light"] .text-white                                                            { color: rgb(var(--fg)) !important; }
+[data-theme="light"] .text-gray-200,
+[data-theme="light"] .text-gray-300                                         { color: rgb(var(--fg)) !important; }
+[data-theme="light"] .text-gray-400                                         { color: rgb(var(--muted)) !important; }
+[data-theme="light"] .text-gray-500,
+[data-theme="light"] .text-gray-600                                         { color: rgb(var(--soft)) !important; }
+
+/* Legacy brand green swaps: existing pages use #22c55e; map to new brand */
+[data-theme="light"] .bg-\[\#22c55e\]                                                       { background-color: rgb(16 185 129) !important; }
+[data-theme="light"] .text-\[\#22c55e\]                                                     { color: rgb(16 185 129) !important; }
+[data-theme="light"] .border-\[\#22c55e\]\/20,
+[data-theme="light"] .border-\[\#22c55e\]\/25,
+[data-theme="light"] .border-\[\#22c55e\]\/30,
+[data-theme="light"] .border-\[\#22c55e\]\/40,
+[data-theme="light"] .border-\[\#22c55e\]\/10 { border-color: rgb(16 185 129 / 0.3) !important; }
+[data-theme="light"] .hover\:bg-\[\#16a34a\]:hover                                          { background-color: rgb(5 150 105) !important; }
+[data-theme="light"] .bg-\[\#22c55e\]\/10                                                   { background-color: rgb(16 185 129 / 0.08) !important; }
+[data-theme="light"] .hover\:bg-\[\#22c55e\]\/20:hover                                      { background-color: rgb(16 185 129 / 0.15) !important; }
+[data-theme="light"] .bg-\[\#facc15\]\/10,
+[data-theme="light"] .bg-\[\#facc15\]\/12                             { background-color: rgb(245 158 11 / 0.10) !important; }
+[data-theme="light"] .bg-\[\#facc15\]                                                       { background-color: rgb(245 158 11) !important; }
+[data-theme="light"] .text-\[\#facc15\]                                                     { color: rgb(217 119 6) !important; }
+[data-theme="light"] .border-\[\#facc15\]\/20,
+[data-theme="light"] .border-\[\#facc15\]\/25                     { border-color: rgb(245 158 11 / 0.3) !important; }
+[data-theme="light"] .hover\:bg-\[\#facc15\]\/20:hover                                      { background-color: rgb(245 158 11 / 0.18) !important; }
+
+/* Common Tailwind semantic patterns in existing code */
+[data-theme="light"] .bg-white\/2,
+[data-theme="light"] .bg-white\/5                                             { background-color: rgb(var(--subtle)) !important; }
+[data-theme="light"] .hover\:bg-white\/2:hover,
+[data-theme="light"] .hover\:bg-white\/5:hover                   { background-color: rgb(var(--subtle)) !important; }
+
+/* Dark mode retains original hardcoded values — no override needed. */
+
+/* ============ UTILITIES ============ */
+@layer utilities {
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  .text-glow-brand { text-shadow: 0 0 24px rgb(16 185 129 / 0.55); }
+  .mask-fade-r { -webkit-mask-image: linear-gradient(to right, black 70%, transparent); mask-image: linear-gradient(to right, black 70%, transparent); }
+
+  /* Animated conic border for premium accent */
+  .ring-conic {
+    background:
+      conic-gradient(from 90deg at 50% 50%, #10b981, #34d399, #fbbf24, #10b981);
+  }
+
+  /* Grain overlay */
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: var(--tw-bg-noise, none);
+    mix-blend-mode: overlay; opacity: 0.35;
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "appId": "in.quizarena.app",
+  "appName": "QuizArena",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "url": "https://quizarena.vercel.app",
+    "cleartext": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2500,
+      "launchAutoHide": true,
+      "backgroundColor": "#0d0d0d",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "StatusBar": {
+      "style": "dark",
+      "backgroundColor": "#0d0d0d",
+      "overlaysWebView": false
+    },
+    "Keyboard": {
+      "resize": "body",
+      "style": "dark",
+      "resizeOnFullScreen": true
+    }
+  },
+  "android": {
+    "minWebViewVersion": 60,
+    "buildOptions": {
+      "keystorePath": "quizarena.keystore",
+      "keystoreAlias": "quizarena"
+    }
+  },
+  "ios": {
+    "contentInset": "always",
+    "scheme": "QuizArena"
+  }
+}

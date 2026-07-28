@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+    <!-- SEO -->
+    <title>QuizArena — Play Quiz. Win Real Money.</title>
+    <meta name="description" content="India's #1 skill-based quiz contest platform. Join contests, compete with lakhs of players, and win real cash prizes every day. 100% legal, 100% skill." />
+    <meta name="keywords" content="quiz contest, win money, skill game, quiz app, online quiz, cash prize quiz India" />
+    <meta name="author" content="QuizArena" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#22c55e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="QuizArena" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="apple-touch-startup-image" href="/icons/icon-512.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2322c55e'/><text y='.9em' font-size='80' x='10' fill='black' font-weight='bold'>Q</text></svg>" />
+
+    <!-- Open Graph (for sharing) -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="QuizArena — Play Quiz. Win Real Money." />
+    <meta property="og:description" content="India's #1 skill-based quiz contest platform. Win cash prizes every day!" />
+    <meta property="og:image"       content="/icons/icon-512.png" />
+    <meta property="og:url"         content="https://quizarena.in" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="QuizArena — Win Real Money Playing Quizzes" />
+    <meta name="twitter:description" content="100% skill-based. 100% legal. Win real cash daily." />
+    <meta name="twitter:image"       content="/icons/icon-512.png" />
+
+    <!-- Prevent phone number detection on mobile -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-DDxFqBn1.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-D-RCKzHD.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BkqF0tcl.js">
+    <link rel="modulepreload" crossorigin href="/assets/charts-S4ZNO1Fs.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BBOm0-oq.css">
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW registered:', reg.scope))
+            .catch(err => console.warn('SW registration failed:', err))
+        })
+      }
+    </script>
+  </body>
+</html>
