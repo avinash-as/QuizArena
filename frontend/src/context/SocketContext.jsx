@@ -16,9 +16,10 @@ export function SocketProvider({ children }) {
 
   useEffect(() => {
     const token = localStorage.getItem('qa_token') || undefined
-    const socket = io('/', {
+    const socket = io(import.meta.env.VITE_SOCKET_URL, {
       path: '/socket.io',
       transports: ['websocket', 'polling'],
+      withCredentials: true,
       auth: token ? { token } : undefined,
       reconnection: true,
       reconnectionAttempts: Infinity,
