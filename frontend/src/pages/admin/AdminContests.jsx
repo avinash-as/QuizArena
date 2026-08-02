@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { HiOutlinePlus, HiOutlinePencil, HiOutlineTrash, HiOutlineGift, HiOutlineClipboardList } from 'react-icons/hi'
-import { contestAPI, quizAPI } from '../../services/api'
+import { contestAPI } from '../../services/api'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import QuestionManagerModal from '../../components/admin/QuestionManagerModal'
 
@@ -14,7 +14,7 @@ const toDatetimeLocal = (d) => {
 
 const EMPTY = {
   title: '', description: '', category: 'general', entryFee: 0,
-  prizePool: 1000, maxParticipants: 100, quiz: '',
+  prizePool: 1000, maxParticipants: 100, targetQuestionCount: 5,
   startTime: '', endTime: '', status: 'DRAFT',
   isFeatured: false,
   prizeBreakdown: [
@@ -27,7 +27,7 @@ const EMPTY = {
 const CATEGORIES = ['javascript','react','nodejs','dsa','aptitude','general','current-affairs','science','history','geography','math','english']
 const STATUSES   = ['DRAFT','UPCOMING','LIVE','COMPLETED','CANCELLED']
 
-function ContestModal({ initial, quizzes, onSave, onClose }) {
+function ContestModal({ initial, onSave, onClose }) {
   const [form, setForm]   = useState({
     ...EMPTY, ...initial,
     startTime: toDatetimeLocal(initial.startTime),
@@ -59,8 +59,8 @@ function ContestModal({ initial, quizzes, onSave, onClose }) {
 
   const handleSave = async () => {
     if (!form.title.trim()) { setError('Title is required'); return }
-    if (form.status !== 'DRAFT' && !form.quiz) {
-      setError('A quiz with at least one question is required before publishing. Save as DRAFT first, then use "Manage Questions".')
+    if (form.status !== 'DRAFT' && (!initial._id || !initial.quiz?.totalQuestions)) {
+      setError('Add at least one question before publishing. Save as DRAFT first, then use "Manage Questions".')
       return
     }
     if (!form.startTime)    { setError('Start time is required'); return }
@@ -118,11 +118,10 @@ function ContestModal({ initial, quizzes, onSave, onClose }) {
               </select>
             </div>
             <div>
-              <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Quiz</label>
-              <select value={form.quiz} onChange={set('quiz')} className="d11-input">
-                <option value="">— No quiz yet (add questions after saving) —</option>
-                {quizzes.map(q => <option key={q._id} value={q._id}>{q.title} ({q.totalQuestions || q.questions?.length || 0} questions)</option>)}
-              </select>
+              <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Number of Questions</label>
+              <input type="number" min="1" max="100" value={form.targetQuestionCount}
+                onChange={setNum('targetQuestionCount')} className="d11-input" placeholder="e.g. 10" />
+              <p className="text-xs text-gray-600 mt-1">Just a target — add the actual questions after saving, via "Manage Questions".</p>
             </div>
           </div>
 
@@ -211,7 +210,6 @@ function ContestModal({ initial, quizzes, onSave, onClose }) {
 
 export default function AdminContests() {
   const [contests, setContests] = useState([])
-  const [quizzes, setQuizzes]   = useState([])
   const [loading, setLoading]   = useState(true)
   const [modal, setModal]       = useState(null)
   const [questionManager, setQuestionManager] = useState(null)
@@ -220,12 +218,8 @@ export default function AdminContests() {
   const load = async () => {
     setLoading(true)
     try {
-      const [cr, qr] = await Promise.all([
-        contestAPI.getAll({ limit: 50 }),
-        quizAPI.getAll({ limit: 100 }),
-      ])
-      setContests(cr.data.contests || [])
-      setQuizzes(qr.data.quizzes || [])
+      const { data } = await contestAPI.getAll({ limit: 50 })
+      setContests(data.contests || [])
     } catch { setMsg('Failed to load data') }
     finally { setLoading(false) }
   }
@@ -378,7 +372,6 @@ export default function AdminContests() {
       {modal && (
         <ContestModal
           initial={modal}
-          quizzes={quizzes}
           onSave={handleSave}
           onClose={() => setModal(null)}
         />

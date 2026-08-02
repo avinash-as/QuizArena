@@ -180,7 +180,9 @@ export default function QuestionManagerModal({ contest, onChanged, onClose }) {
           <>
             <div className="flex gap-2 px-5 pt-4">
               {[
-                { key: 'questions', label: `Questions (${quiz?.questions?.length || 0})` },
+                { key: 'questions', label: contest.targetQuestionCount
+                    ? `Questions (${quiz?.questions?.length || 0}/${contest.targetQuestionCount})`
+                    : `Questions (${quiz?.questions?.length || 0})` },
                 { key: 'new',       label: '+ New Question' },
                 { key: 'bank',      label: '🔍 Question Bank' },
               ].map(t => (
@@ -200,6 +202,11 @@ export default function QuestionManagerModal({ contest, onChanged, onClose }) {
             <div className="flex-1 overflow-y-auto p-5">
               {tab === 'questions' && (
                 <div className="space-y-2">
+                  {contest.targetQuestionCount > 0 && (quiz?.questions?.length || 0) < contest.targetQuestionCount && (
+                    <div className="mb-2 p-2.5 rounded-lg text-xs bg-blue-500/10 border border-blue-500/30 text-blue-300">
+                      {quiz?.questions?.length || 0} of {contest.targetQuestionCount} planned questions added — add {contest.targetQuestionCount - (quiz?.questions?.length || 0)} more, or publish anytime once you have at least 1.
+                    </div>
+                  )}
                   {(!quiz?.questions || quiz.questions.length === 0) && (
                     <p className="text-center text-gray-500 py-10 text-sm">No questions yet. Add one or import from the Question Bank.</p>
                   )}
