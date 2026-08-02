@@ -134,14 +134,17 @@ exports.login = async (req, res, next) => {
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ success: false, message: 'Invalid email or password' })
     }
-    if (!user.isEmailVerified) {
-      return res.status(403).json({
-        success: false,
-        message: 'Please verify your email before logging in. Check your inbox, or request a new link.',
-        unverified: true,
-        email: user.email,
-      })
-    }
+
+    //TEMP: EMAIL VERIFICATION DISABLED UNTIL RESEND DOMAIN IS VERIFIED
+    // if (!user.isEmailVerified) {
+    //   return res.status(403).json({
+    //     success: false,
+    //     message: 'Please verify your email before logging in. Check your inbox, or request a new link.',
+    //     unverified: true,
+    //     email: user.email,
+    //   })
+    // }
+
     if (!user.isActive) {
       return res.status(403).json({ success: false, message: 'Account suspended. Contact support.' })
     }
