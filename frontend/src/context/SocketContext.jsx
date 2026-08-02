@@ -3,7 +3,7 @@ import { io } from 'socket.io-client'
 
 const SocketContext = createContext(null)
 
-/**
+/* 
  * SocketProvider owns a single Socket.IO connection for the whole app.
  * It also exposes a `liveCount` (server-broadcast presence) so any page
  * (Home hero, admin dashboard, etc.) can render a real-time active-user
