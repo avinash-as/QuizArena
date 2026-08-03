@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 // Pure virtual-currency wallet. No real-money deposit or withdrawal —
 // coins here can never be redeemed, transferred, or cashed out for real
-// value, which is what keeps QuizArena an "Online Social Game" rather than
+// value, which is what keeps QuizPitara an "Online Social Game" rather than
 // an "Online Money Game" under India's Promotion and Regulation of Online
 // Gaming Act, 2025. Do not reintroduce a deposit/withdrawal balance without
 // legal review.

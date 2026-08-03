@@ -2,7 +2,7 @@
 // Does NOT delete or touch any other data.
 //
 // Usage (from backend/ folder):
-//   node src/utils/promoteAdmin.js admin@quizarena.io
+//   node src/utils/promoteAdmin.js admin@QuizPitara.io
 //
 // Uses the same MONGO_URI your live server connects to (backend/.env),
 // so this guarantees you're editing the right database.

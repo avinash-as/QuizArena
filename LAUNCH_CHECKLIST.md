@@ -1,4 +1,4 @@
-# QuizArena — Play Store & App Store Launch Checklist
+# QuizPitara — Play Store & App Store Launch Checklist
 
 ## STEP 1 — Generate App Icons (30 minutes)
 
@@ -31,7 +31,7 @@ Place icons in: frontend/public/icons/
    - CLIENT_URL=https://yourdomain.com
    - RAZORPAY_KEY_ID=<your key>
    - RAZORPAY_KEY_SECRET=<your secret>
-4. Deploy → Railway gives you a URL like https://quizarena-backend.up.railway.app
+4. Deploy → Railway gives you a URL like https://QuizPitara-backend.up.railway.app
 
 ### Option B: Render (free)
 1. Go to render.com > New Web Service
@@ -58,7 +58,7 @@ Place icons in: frontend/public/icons/
 2. Import your GitHub repo
 3. Set root directory to: frontend
 4. Add env variable: VITE_API_URL=https://your-backend-url.railway.app/api
-5. Deploy → you get https://quizarena.vercel.app
+5. Deploy → you get https://QuizPitara.vercel.app
 
 ### OR Netlify:
 1. Go to netlify.com
@@ -83,7 +83,7 @@ Install Capacitor in your frontend:
 ```bash
 cd frontend
 npm install @capacitor/core @capacitor/cli @capacitor/android
-npx cap init "QuizArena" "in.quizarena.app" --web-dir dist
+npx cap init "QuizPitara" "in.QuizPitara.app" --web-dir dist
 npm run build
 npx cap add android
 npx cap sync
@@ -101,7 +101,7 @@ In Android Studio:
 ## STEP 6 — Play Store Submission (2-3 hours)
 
 1. Pay $25 one-time fee at play.google.com/console
-2. Create new app: "QuizArena - Win Real Money"
+2. Create new app: "QuizPitara - Win Real Money"
 3. Fill in:
    - App category: Games > Trivia
    - Target audience: 18+ (REQUIRED for real money)
@@ -115,7 +115,7 @@ In Android Studio:
    - App icon (512x512 PNG)
 
 5. Store listing:
-   - Title: QuizArena - Win Real Money Quizzes
+   - Title: QuizPitara - Win Real Money Quizzes
    - Short description (80 chars): Play skill-based quizzes and win real cash prizes daily!
    - Full description: (see template below)
 
@@ -172,7 +172,7 @@ For India, real money gaming requires:
 ## Play Store Full Description Template
 
 ```
-QuizArena - India's #1 Skill-Based Quiz Competition Platform
+QuizPitara - India's #1 Skill-Based Quiz Competition Platform
 
 🏆 Win Real Cash Prizes Daily!
 Join lakhs of players competing in daily quiz contests across General Knowledge, Science, Current Affairs, Sports, and more.
@@ -205,7 +205,7 @@ This is a game of skill. Success depends on your knowledge and speed, not luck.
 
 For 18+ only. Players from Assam, Nagaland, Sikkim, Odisha, Telangana and Andhra Pradesh are not eligible for paid contests.
 
-Support: support@quizarena.in
+Support: support@QuizPitara.in
 ```
 
 ---

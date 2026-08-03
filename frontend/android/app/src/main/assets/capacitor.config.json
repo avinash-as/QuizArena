@@ -1,10 +1,10 @@
 {
-	"appId": "in.quizarena.app",
-	"appName": "QuizArena",
+	"appId": "in.QuizPitara.app",
+	"appName": "QuizPitara",
 	"webDir": "dist",
 	"server": {
 		"androidScheme": "https",
-		"url": "https://quizarena.vercel.app",
+		"url": "https://QuizPitara.vercel.app",
 		"cleartext": false
 	},
 	"plugins": {
@@ -34,6 +34,6 @@
 	},
 	"ios": {
 		"contentInset": "always",
-		"scheme": "QuizArena"
+		"scheme": "QuizPitara"
 	}
 }

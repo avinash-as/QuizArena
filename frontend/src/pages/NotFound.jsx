@@ -23,7 +23,7 @@ export default function NotFound() {
           Page not found
         </h2>
         <p className="text-gray-400 max-w-sm mx-auto mb-8">
-          Looks like this question isn't in our database. Try heading back to the arena.
+          Looks like this question isn't in our database. Try heading back to the Pitara.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3">

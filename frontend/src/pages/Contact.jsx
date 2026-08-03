@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { HiOutlineMail, HiOutlineChatAlt2, HiOutlineDocumentText } from 'react-icons/hi'
 
 const CONTACT_OPTIONS = [
-  { icon: <HiOutlineMail className="w-6 h-6" />, title: 'Email support', desc: 'Average reply time: 4 hours', cta: 'hello@quizarena.io', href: 'mailto:hello@quizarena.io', color: 'bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400' },
+  { icon: <HiOutlineMail className="w-6 h-6" />, title: 'Email support', desc: 'Average reply time: 4 hours', cta: 'hello@QuizPitara.io', href: 'mailto:hello@QuizPitara.io', color: 'bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400' },
   { icon: <HiOutlineChatAlt2 className="w-6 h-6" />, title: 'Live chat', desc: 'Available Mon–Fri, 9am–6pm UTC', cta: 'Open chat', href: '#', color: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400' },
   { icon: <HiOutlineDocumentText className="w-6 h-6" />, title: 'Documentation', desc: 'Browse our help articles', cta: 'Visit docs', href: '#', color: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' },
 ]
@@ -101,10 +101,10 @@ export default function Contact() {
             <h2 className="text-xl font-display font-bold text-white mb-5">FAQs</h2>
             <div className="space-y-4">
               {[
-                { q: 'Is QuizArena free?', a: 'Yes — completely free to play, forever.' },
+                { q: 'Is QuizPitara free?', a: 'Yes — completely free to play, forever.' },
                 { q: 'Can I create my own quiz?', a: 'Quiz creation is coming in our next major update.' },
                 { q: 'How is the score calculated?', a: 'Score = accuracy × speed bonus. Answer fast and correctly!' },
-                { q: 'Can I play on mobile?', a: 'Absolutely — QuizArena is built mobile-first.' },
+                { q: 'Can I play on mobile?', a: 'Absolutely — QuizPitara is built mobile-first.' },
               ].map(f => (
                 <div key={f.q} className="d11-card p-4">
                   <h4 className="font-display font-bold text-white text-sm mb-1">{f.q}</h4>

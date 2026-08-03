@@ -10,10 +10,10 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "in.quizarena.app"
+    namespace = "in.QuizPitara.app"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "in.quizarena.app"
+        applicationId "in.QuizPitara.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

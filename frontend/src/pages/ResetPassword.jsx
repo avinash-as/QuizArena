@@ -49,14 +49,14 @@ export default function ResetPassword() {
       <div className="w-full max-w-sm">
         <Link to="/" className="flex items-center gap-2 justify-center mb-8">
           <div className="w-9 h-9 rounded-xl bg-[#22c55e] flex items-center justify-center text-black font-black text-xl">Q</div>
-          <span className="text-xl font-black text-white">Quiz<span className="text-[#22c55e]">Arena</span></span>
+          <span className="text-xl font-black text-white">Quiz<span className="text-[#22c55e]">Pitara</span></span>
         </Link>
 
         {done ? (
           <div className="d11-card p-8 text-center">
             <div className="text-4xl mb-4">✅</div>
             <h1 className="text-xl font-black text-white mb-2">Password reset!</h1>
-            <p className="text-sm text-gray-400">Taking you to QuizArena…</p>
+            <p className="text-sm text-gray-400">Taking you to QuizPitara…</p>
           </div>
         ) : (
           <div className="d11-card p-8">

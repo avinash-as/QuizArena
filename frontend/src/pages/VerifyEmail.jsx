@@ -33,7 +33,7 @@ export default function VerifyEmail() {
       <div className="w-full max-w-sm text-center">
         <Link to="/" className="inline-flex items-center gap-2 mb-8">
           <div className="w-9 h-9 rounded-xl bg-[#22c55e] flex items-center justify-center text-black font-black text-xl">Q</div>
-          <span className="text-xl font-black text-white">Quiz<span className="text-[#22c55e]">Arena</span></span>
+          <span className="text-xl font-black text-white">Quiz<span className="text-[#22c55e]">Pitara</span></span>
         </Link>
 
         <div className="d11-card p-8">

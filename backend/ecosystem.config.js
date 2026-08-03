@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'quizarena-api',
+      name: 'QuizPitara-api',
       script: 'src/server.js',
       instances: 'max',
       exec_mode: 'cluster',

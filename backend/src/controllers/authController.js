@@ -71,7 +71,7 @@ exports.register = async (req, res, next) => {
 
     // Credit legacy coins — safe
     try {
-      await creditCoins(user._id, 100, 'signup_bonus', 'Welcome to QuizArena! Signup bonus')
+      await creditCoins(user._id, 100, 'signup_bonus', 'Welcome to QuizPitara! Signup bonus')
     } catch (_) {}
 
     // Welcome notification — safe
@@ -79,7 +79,7 @@ exports.register = async (req, res, next) => {
       const Notification = require('../models/Notification')
       await Notification.create({
         user:    user._id,
-        title:   'Welcome to QuizArena! 🎉',
+        title:   'Welcome to QuizPitara! 🎉',
         message: 'You received 100 bonus coins. Verify your email to start playing!',
         type:    'wallet',
       })

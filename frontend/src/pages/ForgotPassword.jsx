@@ -31,7 +31,7 @@ export default function ForgotPassword() {
         className="w-full max-w-sm"
       >
         <Link to="/" className="text-2xl font-display font-extrabold text-[#22c55e] block text-center mb-8">
-          ⚡ QuizArena
+          ⚡ QuizPitara
         </Link>
 
         {sent ? (

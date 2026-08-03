@@ -76,7 +76,7 @@ export default function Navbar() {
             <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-gold-500 border-2 border-surface" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-[15px] font-black tracking-tight text-fg">Quiz<span className="text-brand-500">Arena</span></span>
+            <span className="text-[15px] font-black tracking-tight text-fg">Quiz<span className="text-brand-500">Pitara</span></span>
             <span className="text-[9px] font-mono uppercase tracking-widest text-soft">Skill · Speed · Reward</span>
           </div>
         </Link>

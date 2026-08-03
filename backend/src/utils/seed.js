@@ -6,7 +6,7 @@
 // const { AchievementDefinition } = require('../models/Achievement')
 
 // const seed = async () => {
-//   const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/quizarena'
+//   const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/QuizPitara'
 //   await mongoose.connect(uri)
 //   console.log('Connected to MongoDB')
 
@@ -14,11 +14,11 @@
 //   console.log('Cleared existing data')
 
 //   const admin = await User.create({
-//     name: 'Admin', email: 'admin@quizarena.io', password: 'admin123',
+//     name: 'Admin', email: 'admin@QuizPitara.io', password: 'admin123',
 //     role: 'admin', coins: 9999, avatar: 'https://api.dicebear.com/8.x/avataaars/svg?seed=admin',
 //   })
 //   await User.create({
-//     name: 'Test User', email: 'test@quizarena.io', password: 'test1234',
+//     name: 'Test User', email: 'test@QuizPitara.io', password: 'test1234',
 //     coins: 500, avatar: 'https://api.dicebear.com/8.x/avataaars/svg?seed=testuser',
 //     totalQuizzesPlayed: 12, totalContestsJoined: 5, totalWins: 2, streak: 3, xp: 1200, level: 3,
 //   })
@@ -116,8 +116,8 @@
 //   ])
 //   console.log('Contests created')
 //   console.log('\n✅ Seed complete!')
-//   console.log('Admin: admin@quizarena.io / admin123')
-//   console.log('User:  test@quizarena.io  / test1234')
+//   console.log('Admin: admin@QuizPitara.io / admin123')
+//   console.log('User:  test@QuizPitara.io  / test1234')
 //   process.exit(0)
 // }
 
@@ -135,7 +135,7 @@ const Contest = require('../models/Contest')
 const { AchievementDefinition } = require('../models/Achievement')
 
 const seed = async () => {
-  const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/quizarena'
+  const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/QuizPitara'
   await mongoose.connect(uri)
   console.log('Connected to MongoDB')
 
@@ -143,12 +143,12 @@ const seed = async () => {
   console.log('Cleared existing data')
 
   const admin = await User.create({
-    name: 'Admin', email: 'admin@quizarena.io', password: 'admin123',
+    name: 'Admin', email: 'admin@QuizPitara.io', password: 'admin123',
     role: 'admin', coins: 9999, avatar: 'https://api.dicebear.com/8.x/avataaars/svg?seed=admin',
     isEmailVerified: true,
   })
   await User.create({
-    name: 'Test User', email: 'test@quizarena.io', password: 'test1234',
+    name: 'Test User', email: 'test@QuizPitara.io', password: 'test1234',
     coins: 500, avatar: 'https://api.dicebear.com/8.x/avataaars/svg?seed=testuser',
     totalQuizzesPlayed: 12, totalContestsJoined: 5, totalWins: 2, streak: 3, xp: 1200, level: 3,
     isEmailVerified: true,
@@ -247,8 +247,8 @@ const seed = async () => {
   ])
   console.log('Contests created')
   console.log('\n✅ Seed complete!')
-  console.log('Admin: admin@quizarena.io / admin123')
-  console.log('User:  test@quizarena.io  / test1234')
+  console.log('Admin: admin@QuizPitara.io / admin123')
+  console.log('User:  test@QuizPitara.io  / test1234')
   process.exit(0)
 }
 

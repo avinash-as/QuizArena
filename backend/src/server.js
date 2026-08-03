@@ -179,7 +179,7 @@ const start = async () => {
 
   const PORT = process.env.PORT || 5000
   server.listen(PORT, () => {
-    console.log(`🚀 QuizArena API — port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
+    console.log(`🚀 QuizPitara API — port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
   })
 }
 

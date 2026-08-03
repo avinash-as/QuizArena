@@ -1,4 +1,4 @@
-# ⚡ QuizArena — Full Stack Production App
+# ⚡ QuizPitara — Full Stack Production App
 
 A Dream11-style quiz contest platform. Join contests, compete, climb leaderboards, and win coins.
 
@@ -7,7 +7,7 @@ A Dream11-style quiz contest platform. Join contests, compete, climb leaderboard
 ## 🏗️ Project Structure
 
 ```
-quizarena/
+QuizPitara/
 ├── backend/          # Node.js + Express + MongoDB + Socket.io
 │   ├── src/
 │   │   ├── config/       # db.js, redis.js
@@ -71,8 +71,8 @@ npm run dev       # Starts on port 5173
 
 | Role  | Email                  | Password  |
 |-------|------------------------|-----------|
-| Admin | admin@quizarena.io     | admin123  |
-| User  | test@quizarena.io      | test1234  |
+| Admin | admin@QuizPitara.io     | admin123  |
+| User  | test@QuizPitara.io      | test1234  |
 
 ---
 

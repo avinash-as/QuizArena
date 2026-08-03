@@ -50,7 +50,7 @@ export default function Register() {
         <div className="w-full max-w-sm text-center">
           <Link to="/" className="inline-flex items-center gap-2 mb-8">
             <div className="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white font-black text-xl">Q</div>
-            <span className="text-xl font-black">Quiz<span className="text-brand-500">Arena</span></span>
+            <span className="text-xl font-black">Quiz<span className="text-brand-500">Pitara</span></span>
           </Link>
           <div className="qa-card p-8">
             <div className="text-5xl mb-4">📬</div>
@@ -77,7 +77,7 @@ export default function Register() {
 
         <Link to="/" className="relative flex items-center gap-2.5 w-fit">
           <div className="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white font-black text-xl shadow-glow-brand">Q</div>
-          <span className="text-xl font-black">Quiz<span className="text-brand-500">Arena</span></span>
+          <span className="text-xl font-black">Quiz<span className="text-brand-500">Pitara</span></span>
         </Link>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative">
@@ -119,7 +119,7 @@ export default function Register() {
           <div className="lg:hidden text-center mb-6">
             <Link to="/" className="inline-flex items-center gap-2">
               <div className="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white font-black">Q</div>
-              <span className="font-black text-lg">Quiz<span className="text-brand-500">Arena</span></span>
+              <span className="font-black text-lg">Quiz<span className="text-brand-500">Pitara</span></span>
             </Link>
           </div>
 

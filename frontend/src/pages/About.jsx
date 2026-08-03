@@ -34,7 +34,7 @@ export default function About() {
             </h1>
 
           <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            QuizArena is an interactive quiz platform built to make learning engaging,
+            QuizPitara is an interactive quiz platform built to make learning engaging,
             competitive, and rewarding. We believe knowledge grows faster when learning
             feels like a game. Our mission is to help students and learners challenge
             themselves, track progress, and compete with others in a fun environment.
@@ -116,7 +116,7 @@ export default function About() {
 
             <div className="text-center mt-24">
                 <h2 className="text-3xl font-display font-extrabold mb-4">
-                  Join the QuizArena Community
+                  Join the QuizPitara Community
                 </h2>
 
                 <p className="text-gray-400 mb-6">

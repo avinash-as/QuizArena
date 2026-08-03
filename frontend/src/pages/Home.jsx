@@ -87,7 +87,7 @@ export default function Home() {
   const [topPlayers, setTopPlayers]     = useState([])
   const [loading, setLoading]           = useState(true)
 
-  const startCta = user ? { to: '/contests', label: 'Enter the Arena' } : { to: '/register', label: 'Play Free — Get 🪙100' }
+  const startCta = user ? { to: '/contests', label: 'Enter the Pitara' } : { to: '/register', label: 'Play Free — Get 🪙100' }
 
   useEffect(() => {
     Promise.allSettled([
@@ -126,7 +126,7 @@ export default function Home() {
                 data-testid="live-presence"
               >
                 <span className="live-dot" />
-                <span className="tabular-nums">{(liveCount || 1247).toLocaleString()}</span> player{liveCount === 1 ? '' : 's'} in the arena right now
+                <span className="tabular-nums">{(liveCount || 1247).toLocaleString()}</span> player{liveCount === 1 ? '' : 's'} in the Pitara right now
               </motion.div>
 
               <motion.h1

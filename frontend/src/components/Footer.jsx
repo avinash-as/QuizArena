@@ -55,7 +55,7 @@ export default function Footer() {
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-white font-black">Q</div>
-              <span className="text-lg font-black text-fg">Quiz<span className="text-brand-500">Arena</span></span>
+              <span className="text-lg font-black text-fg">Quiz<span className="text-brand-500">Pitara</span></span>
             </Link>
             <p className="text-sm text-muted max-w-sm leading-relaxed">
               India's premier skill-based quiz platform. Compete, learn, and win real cash prizes in daily contests across 100+ categories.
@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-soft">
-          <p>© {new Date().getFullYear()} QuizArena. All rights reserved. Made in India 🇮🇳</p>
+          <p>© {new Date().getFullYear()} QuizPitara. All rights reserved. Made in India 🇮🇳</p>
           <p className="text-[11px]">Games of skill. 18+ only. Play responsibly.</p>
         </div>
       </div>

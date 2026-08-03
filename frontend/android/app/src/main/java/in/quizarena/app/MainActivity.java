@@ -1,4 +1,4 @@
-package in.quizarena.app;
+package in.QuizPitara.app;
 
 import com.getcapacitor.BridgeActivity;
 

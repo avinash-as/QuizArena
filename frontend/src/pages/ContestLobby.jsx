@@ -136,7 +136,7 @@ export default function ContestLobby() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-start justify-between flex-wrap gap-4">
             <div>
-              <p className="section-label mb-2">Arena</p>
+              <p className="section-label mb-2">Pitara</p>
               <h1 className="text-3xl sm:text-4xl font-black text-fg">Contest Lobby</h1>
               <p className="text-muted text-sm mt-1">
                 {liveCount > 0 && <span className="text-brand-500 font-semibold">{liveCount} Live now · </span>}

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quizarena-v1'
+const CACHE_NAME = 'QuizPitara-v1'
 const STATIC_ASSETS = ['/', '/index.html', '/manifest.json']
 
 // Install — cache static assets
@@ -43,11 +43,11 @@ self.addEventListener('fetch', (e) => {
 self.addEventListener('push', (e) => {
   const data = e.data?.json() || {}
   e.waitUntil(
-    self.registration.showNotification(data.title || 'QuizArena', {
+    self.registration.showNotification(data.title || 'QuizPitara', {
       body:    data.body || 'You have a new notification',
       icon:    '/icons/icon-192.png',
       badge:   '/icons/icon-192.png',
-      tag:     data.tag || 'quizarena',
+      tag:     data.tag || 'QuizPitara',
       data:    { url: data.url || '/' },
       actions: [
         { action: 'open',    title: 'Open App' },

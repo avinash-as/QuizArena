@@ -3,18 +3,18 @@ version: '3.9'
 services:
   mongo:
     image: mongo:7
-    container_name: quizarena-mongo
+    container_name: QuizPitara-mongo
     restart: unless-stopped
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
     environment:
-      MONGO_INITDB_DATABASE: quizarena
+      MONGO_INITDB_DATABASE: QuizPitara
 
   redis:
     image: redis:7-alpine
-    container_name: quizarena-redis
+    container_name: QuizPitara-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -24,13 +24,13 @@ services:
 
   backend:
     build: ./backend
-    container_name: quizarena-api
+    container_name: QuizPitara-api
     restart: unless-stopped
     ports:
       - "5000:5000"
     environment:
       NODE_ENV: production
-      MONGODB_URI: mongodb://mongo:27017/quizarena
+      MONGODB_URI: mongodb://mongo:27017/QuizPitara
       REDIS_URL: redis://redis:6379
     env_file:
       - ./backend/.env
@@ -42,7 +42,7 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: quizarena-web
+    container_name: QuizPitara-web
     restart: unless-stopped
     ports:
       - "80:80"

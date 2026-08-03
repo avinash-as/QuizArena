@@ -1,4 +1,4 @@
-# QuizArena — What To Do Right Now
+# QuizPitara — What To Do Right Now
 # Read this top to bottom. Do every step.
 
 =====================================================
@@ -38,7 +38,7 @@ Terminal 2 (Frontend):
   npm run dev
 
 Open: http://localhost:5173
-Login: admin@quizarena.io / admin123
+Login: admin@QuizPitara.io / admin123
 
 TEST THESE IN ORDER:
 1. Login as admin → go to /admin
@@ -67,14 +67,14 @@ You need these 4 accounts (all FREE):
 
 --- 2A: GITHUB ---
 1. Go to github.com → Sign up
-2. Create repository called "quizarena"
+2. Create repository called "QuizPitara"
 3. Upload your entire project folder
 
 --- 2B: MONGODB ATLAS (Free Database) ---
 1. Go to mongodb.com/atlas → Sign up
 2. Create FREE cluster (M0 tier)
 3. Click "Connect" → "Drivers" → copy connection string
-   Looks like: mongodb+srv://user:pass@cluster0.xxxxx.mongodb.net/quizarena
+   Looks like: mongodb+srv://user:pass@cluster0.xxxxx.mongodb.net/QuizPitara
 4. Save this string
 
 --- 2C: RAILWAY (Free Backend Hosting) ---
@@ -84,14 +84,14 @@ You need these 4 accounts (all FREE):
 4. Click "Variables" → add these:
    NODE_ENV = production
    MONGO_URI = (paste your MongoDB Atlas string)
-   JWT_SECRET = QuizArena2024SuperSecretKeyChangeThis!XYZ123
-   CLIENT_URL = https://quizarena.vercel.app
+   JWT_SECRET = QuizPitara2024SuperSecretKeyChangeThis!XYZ123
+   CLIENT_URL = https://QuizPitara.vercel.app
    DAILY_BONUS_COINS = 50
    REFERRER_BONUS = 200
    REFEREE_BONUS = 100
    MIN_WITHDRAWAL = 100
 5. Railway deploys → gives you URL like:
-   https://quizarena-backend.up.railway.app
+   https://QuizPitara-backend.up.railway.app
 6. SAVE THIS URL
 
 --- 2D: VERCEL (Free Frontend Hosting) ---
@@ -99,13 +99,13 @@ You need these 4 accounts (all FREE):
 2. Click "Import Project" → select your repo
 3. Set Root Directory: frontend
 4. Add Environment Variable:
-   VITE_API_URL = https://quizarena-backend.up.railway.app/api
+   VITE_API_URL = https://QuizPitara-backend.up.railway.app/api
 5. Click Deploy
 6. Vercel gives you URL:
-   https://quizarena.vercel.app
+   https://QuizPitara.vercel.app
 
 NOW YOUR APP IS LIVE!
-Test at: https://quizarena.vercel.app
+Test at: https://QuizPitara.vercel.app
 
 --- 2E: RUN SEED ON PRODUCTION ---
 In Railway dashboard → your backend → "Shell" tab → type:
@@ -137,7 +137,7 @@ In Railway Variables, add:
 
 --- 3D: UPDATE CAPACITOR ---
 Open frontend/capacitor.config.json
-Change: "url": "https://quizarena.vercel.app"
+Change: "url": "https://QuizPitara.vercel.app"
 (Already done — just make sure it matches your Vercel URL)
 
 --- 3E: TEST DEPOSITS ---
@@ -173,8 +173,8 @@ npm run build
 
 --- 4D: INITIALIZE CAPACITOR ---
 npx cap init
-(If it asks for app name: QuizArena)
-(App ID: in.quizarena.app)
+(If it asks for app name: QuizPitara)
+(App ID: in.QuizPitara.app)
 (Web dir: dist)
 
 --- 4E: ADD ANDROID ---
@@ -201,15 +201,15 @@ In Android Studio:
 1. Build → Generate Signed Bundle / APK
 2. Choose: Android App Bundle (for Play Store)
 3. Click "Create new keystore"
-   - Save to Desktop/quizarena.keystore
+   - Save to Desktop/QuizPitara.keystore
    - Password: (create strong password, SAVE IT FOREVER)
-   - Alias: quizarena
+   - Alias: QuizPitara
    - Fill your name, city, country
 4. Click Next → Release → Finish
 5. Wait 2-3 minutes
 6. File saved to: android/app/release/app-release.aab
 
-⚠️ IMPORTANT: Copy quizarena.keystore to Google Drive + USB.
+⚠️ IMPORTANT: Copy QuizPitara.keystore to Google Drive + USB.
    If you lose it, you can NEVER update the app again.
 
 =====================================================
@@ -225,7 +225,7 @@ STEP 5 — SUBMIT TO PLAY STORE (Week 3-4)
 
 --- 5B: CREATE YOUR APP ---
 1. Click "Create app"
-2. App name: QuizArena - Win Real Money
+2. App name: QuizPitara - Win Real Money
 3. Default language: English (India)
 4. Type: Game
 5. Free or Paid: Free
@@ -234,7 +234,7 @@ STEP 5 — SUBMIT TO PLAY STORE (Week 3-4)
 1. Click "Production" → "Create new release"
 2. Upload your app-release.aab file
 3. Release name: 1.0.0
-4. Release notes: "First version of QuizArena - Play quiz contests and win real cash prizes!"
+4. Release notes: "First version of QuizPitara - Play quiz contests and win real cash prizes!"
 
 --- 5D: FILL STORE LISTING ---
 Short description (80 chars):
@@ -242,7 +242,7 @@ Short description (80 chars):
 
 Full description:
 ---
-QuizArena is India's #1 skill-based quiz competition platform.
+QuizPitara is India's #1 skill-based quiz competition platform.
 
 🏆 WIN REAL CASH PRIZES DAILY!
 
@@ -258,7 +258,7 @@ CATEGORIES:
 • Science • History • Mathematics
 • Technology • Sports
 
-WHY QUIZARENA:
+WHY QuizPitara:
 ✅ 100% Skill-Based — No luck, only knowledge
 ✅ Instant Withdrawals — Bank transfer within 24 hours
 ✅ Daily Contests — New contests added every day
@@ -269,8 +269,8 @@ WHY QUIZARENA:
 For age 18+ only.
 Not available in: Assam, Nagaland, Sikkim, Odisha, Telangana, Andhra Pradesh.
 
-Support: support@quizarena.in
-Website: quizarena.in
+Support: support@QuizPitara.in
+Website: QuizPitara.in
 ---
 
 --- 5E: SCREENSHOTS ---
@@ -297,7 +297,7 @@ Declare:
 - App activity: Collected for leaderboards
 
 --- 5H: PRIVACY POLICY URL ---
-Enter: https://quizarena.vercel.app/privacy
+Enter: https://QuizPitara.vercel.app/privacy
 
 --- 5I: SUBMIT ---
 Click "Submit for review"

@@ -11,7 +11,7 @@ const getClient = () => {
   return resendClient
 }
 
-const FROM = process.env.EMAIL_FROM || 'QuizArena <onboarding@resend.dev>'
+const FROM = process.env.EMAIL_FROM || 'QuizPitara <onboarding@resend.dev>'
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173'
 
 const wrapper = (title, bodyHtml) => `
@@ -22,14 +22,14 @@ const wrapper = (title, bodyHtml) => `
     <tr><td align="center">
       <table width="100%" style="max-width:480px;background:#151515;border-radius:16px;overflow:hidden;border:1px solid #262626;">
         <tr><td style="padding:28px 32px 0;">
-          <div style="font-size:20px;font-weight:900;color:#fff;">Quiz<span style="color:#22c55e;">Arena</span></div>
+          <div style="font-size:20px;font-weight:900;color:#fff;">Quiz<span style="color:#22c55e;">Pitara</span></div>
         </td></tr>
         <tr><td style="padding:24px 32px 32px;">
           <h1 style="color:#fff;font-size:20px;margin:0 0 12px;">${title}</h1>
           ${bodyHtml}
         </td></tr>
       </table>
-      <p style="color:#666;font-size:12px;margin-top:20px;">© ${new Date().getFullYear()} QuizArena. If you didn't request this, you can safely ignore this email.</p>
+      <p style="color:#666;font-size:12px;margin-top:20px;">© ${new Date().getFullYear()} QuizPitara. If you didn't request this, you can safely ignore this email.</p>
     </td></tr>
   </table>
 </body>
@@ -68,10 +68,10 @@ exports.sendVerificationEmail = async (user, rawToken) => {
   const link = `${CLIENT_URL}/verify-email/${rawToken}`
   return send({
     to: user.email,
-    subject: 'Verify your QuizArena email',
+    subject: 'Verify your QuizPitara email',
     html: wrapper('Confirm your email', `
       <p style="color:#a3a3a3;font-size:14px;line-height:1.6;">
-        Hi ${user.name}, welcome to QuizArena! Click below to verify your email and activate your account.
+        Hi ${user.name}, welcome to QuizPitara! Click below to verify your email and activate your account.
         This link expires in 24 hours.
       </p>
       <a href="${link}" style="display:inline-block;margin-top:16px;background:#22c55e;color:#000;font-weight:700;
@@ -87,7 +87,7 @@ exports.sendPasswordResetEmail = async (user, rawToken) => {
   const link = `${CLIENT_URL}/reset-password/${rawToken}`
   return send({
     to: user.email,
-    subject: 'Reset your QuizArena password',
+    subject: 'Reset your QuizPitara password',
     html: wrapper('Reset your password', `
       <p style="color:#a3a3a3;font-size:14px;line-height:1.6;">
         Hi ${user.name}, we received a request to reset your password. This link expires in 1 hour.

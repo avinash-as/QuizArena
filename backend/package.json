@@ -1,7 +1,7 @@
 {
-  "name": "quizarena-backend",
+  "name": "QuizPitara-backend",
   "version": "2.0.0",
-  "description": "QuizArena production backend",
+  "description": "QuizPitara production backend",
   "type": "commonjs",
   "main": "src/server.js",
   "scripts": {

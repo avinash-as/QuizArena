@@ -1,4 +1,4 @@
-# QuizArena v2.0 — Production Upgrade Guide
+# QuizPitara v2.0 — Production Upgrade Guide
 
 ## What Was Added
 

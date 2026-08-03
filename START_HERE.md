@@ -1,4 +1,4 @@
-# QuizArena — Complete Setup Guide
+# QuizPitara — Complete Setup Guide
 # Read this top to bottom. Every step matters.
 
 ## YOUR OLD ZIP FILE — What to do with it
@@ -64,8 +64,8 @@ You need these installed on your computer:
 
 ## STEP 2 — EXTRACT THE ZIP
 
-1. Download quizarena-v2-upgraded.zip
-2. Extract it anywhere — e.g. C:\Projects\quizarena or ~/projects/quizarena
+1. Download QuizPitara-v2-upgraded.zip
+2. Extract it anywhere — e.g. C:\Projects\QuizPitara or ~/projects/QuizPitara
 3. You should see two folders: backend/ and frontend/
 
 ---
@@ -75,7 +75,7 @@ You need these installed on your computer:
 Open your terminal and run these commands one by one:
 
 ```bash
-cd quizarena-upgraded/backend
+cd QuizPitara-upgraded/backend
 ```
 
 ### 3a. Create your .env file
@@ -88,7 +88,7 @@ Open .env in any text editor and fill in:
 ```
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb://localhost:27017/quizarena
+MONGO_URI=mongodb://localhost:27017/QuizPitara
 JWT_SECRET=ThisMustBeAtLeast32CharactersLongAndRandom123!
 JWT_EXPIRES_IN=7d
 REDIS_URL=redis://localhost:6379
@@ -119,8 +119,8 @@ If using MongoDB Atlas: paste your connection string as MONGO_URI in .env
 npm run seed
 ```
 This creates:
-  Admin account: admin@quizarena.io / admin123
-  Test user:     test@quizarena.io  / test1234
+  Admin account: admin@QuizPitara.io / admin123
+  Test user:     test@QuizPitara.io  / test1234
   Sample quizzes and contests
 
 ### 3e. Start the backend server
@@ -128,7 +128,7 @@ This creates:
 npm run dev
 ```
 You should see:
-  🚀 QuizArena API on port 5000
+  🚀 QuizPitara API on port 5000
   [DB] MongoDB connected
   [DB] Indexes synced ✓
 
@@ -139,7 +139,7 @@ You should see:
 Open a NEW terminal window (keep the backend running):
 
 ```bash
-cd quizarena-upgraded/frontend
+cd QuizPitara-upgraded/frontend
 ```
 
 ### 4a. Check your .env file
@@ -178,7 +178,7 @@ Test these things in order:
 7. ✅ Go to Leaderboard — see rankings
 
 Now test admin:
-1. Login with: admin@quizarena.io / admin123
+1. Login with: admin@QuizPitara.io / admin123
 2. Go to: http://localhost:5173/admin
 3. You should see the full admin dashboard
 4. Try: /admin/question-bank — add a test question
@@ -337,7 +337,7 @@ Fix: Make sure MongoDB is running first, then run npm run seed
 ```bash
 # On your server
 git clone your-repo
-cd quizarena-upgraded/backend
+cd QuizPitara-upgraded/backend
 cp .env.example .env
 # fill in production values
 npm install
