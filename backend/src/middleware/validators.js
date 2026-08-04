@@ -195,3 +195,20 @@ exports.bulkQuestionsValidators = [
   body('questions.*.options').isArray({ min: 2, max: 4 }).withMessage('Each question needs 2-4 options'),
   body('questions.*.correctIndex').isInt({ min: 0, max: 3 }).withMessage('Each correctIndex must be 0-3'),
 ]
+
+exports.roomCodeParamValidator = [param('code').isLength({ min: 4, max: 12 }).withMessage('Invalid room code')]
+
+exports.createRoomValidators = [
+  body('title').trim().isLength({ min: 3, max: 120 }).withMessage('Title must be 3-120 characters'),
+  body('quiz').isMongoId().withMessage('A valid quiz must be selected'),
+  body('maxParticipants').optional().isInt({ min: 2, max: 500 }).withMessage('Max participants must be 2-500'),
+  body('isPublic').optional().isBoolean().withMessage('isPublic must be true or false'),
+  body('password').optional({ nullable: true }).isLength({ min: 4, max: 50 }).withMessage('Room password must be 4-50 characters'),
+  body('scheduledAt').optional({ nullable: true }).isISO8601().withMessage('scheduledAt must be a valid date'),
+  body('duration').optional().isInt({ min: 0 }).withMessage('Duration must be 0 or more minutes'),
+]
+
+exports.joinRoomValidators = [
+  param('code').isLength({ min: 4, max: 12 }).withMessage('Invalid room code'),
+  body('password').optional().isString(),
+]

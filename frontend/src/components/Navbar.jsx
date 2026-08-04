@@ -14,6 +14,7 @@ import ThemeToggle from './ThemeToggle'
 const NAV_LINKS = [
   { to: '/',            label: 'Home',        icon: <HiOutlineHome className="w-4 h-4" /> },
   { to: '/contests',    label: 'Contests',    icon: <HiOutlineCollection className="w-4 h-4" /> },
+  { to: '/rooms',       label: 'Rooms',       icon: <HiOutlineViewGrid className="w-4 h-4" /> },
   { to: '/categories',  label: 'Practice',    icon: <HiOutlineStar className="w-4 h-4" /> },
   { to: '/leaderboard', label: 'Leaderboard', icon: <HiOutlineTrendingUp className="w-4 h-4" /> },
 ]

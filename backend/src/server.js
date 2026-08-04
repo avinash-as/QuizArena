@@ -141,6 +141,7 @@ const start = async () => {
   // --- Routes ---
   app.use('/api/auth',            require('./routes/auth'))
   app.use('/api/contests',        require('./routes/contests'))
+  app.use('/api/rooms',           require('./routes/rooms'))
   app.use('/api/quizzes',         require('./routes/quizzes'))
   app.use('/api/leaderboard',     require('./routes/leaderboard'))
   app.use('/api/wallet',          require('./routes/wallet'))

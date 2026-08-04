@@ -1,6 +1,7 @@
 const Contest = require('../models/Contest')
 const ContestParticipant = require('../models/ContestParticipant')
 const { cache } = require('../config/redis')
+const registerRoomHandlers = require('./roomHandlers')
 
 // Live presence counter. Increments on socket connect, decrements on disconnect.
 // Broadcast every 2s (idempotent) so the Home hero has a real, near-realtime number.
@@ -48,6 +49,11 @@ const setupSocket = (io) => {
     })
 
     socket.on('contest:leave', ({ contestId }) => socket.leave(`contest:${contestId}`))
+
+    // Live Rooms — separate feature, separate event namespace (room:*),
+    // registered on the same socket so it shares the existing auth
+    // middleware above (socket.data.userId) without any duplication.
+    registerRoomHandlers(io, socket)
 
     socket.on('leaderboard:subscribe', ({ period = 'alltime' }) => {
       socket.join(`leaderboard:${period}`)
@@ -107,6 +113,13 @@ const setupSocket = (io) => {
 
     emitContestEnded: (contestId) => {
       io.to(`contest:${contestId}`).emit('contest:ended', { contestId, endedAt: new Date() })
+    },
+
+    // Rooms — REST endpoints (join/kick side-effects that aren't already
+    // covered by a socket event) use this to notify everyone in the room
+    // channel, same pattern as emitParticipantJoined above.
+    emitRoomParticipantJoined: (code, count) => {
+      io.to(`room:${code}`).emit('room:participant_count', { count })
     },
   }
 }

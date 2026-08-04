@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import {
   HiOutlineHome, HiOutlineCollection, HiOutlineStar,
-  HiOutlineTrendingUp, HiOutlineUser,
+  HiOutlineTrendingUp, HiOutlineUser, HiOutlineViewGrid,
 } from 'react-icons/hi'
 import { useAuth } from '../context/AuthContext'
 
 const ITEMS = [
   { to: '/',            label: 'Home',    icon: HiOutlineHome },
   { to: '/contests',    label: 'Play',    icon: HiOutlineCollection },
+  { to: '/rooms',       label: 'Rooms',   icon: HiOutlineViewGrid },
   { to: '/categories',  label: 'Practice',icon: HiOutlineStar },
   { to: '/leaderboard', label: 'Ranks',   icon: HiOutlineTrendingUp },
   { to: '/profile',     label: 'Me',      icon: HiOutlineUser, requiresAuth: true },
@@ -22,7 +23,7 @@ export default function BottomNav() {
       data-testid="mobile-bottom-nav"
       className="lg:hidden fixed bottom-0 inset-x-0 z-40 glass border-t border-border pb-[env(safe-area-inset-bottom)]"
     >
-      <div className="grid grid-cols-5 max-w-lg mx-auto">
+      <div className="grid grid-cols-6 max-w-lg mx-auto">
         {ITEMS.map(item => (
           <NavLink
             key={item.to}

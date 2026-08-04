@@ -51,6 +51,19 @@ export const contestAPI = {
   distributePrizes: (id)          => api.post(`/contests/${id}/distribute-prizes`),
 }
 
+
+
+export const roomAPI = {
+  create:         (data)            => api.post('/rooms', data),
+  getByCode:      (code)            => api.get(`/rooms/${code}`),
+  join:           (code, password)  => api.post(`/rooms/${code}/join`, { password }),
+  cancel:         (code)            => api.delete(`/rooms/${code}`),
+  myRooms:        ()                => api.get('/rooms/my'),
+  joinedRooms:    ()                => api.get('/rooms/joined'),
+  getLeaderboard: (code)            => api.get(`/rooms/${code}/leaderboard`),
+  getMyResult:    (code)            => api.get(`/rooms/${code}/result`),
+}
+
 export const attemptAPI = {
   start:     (contestId)          => api.post('/attempts/start', { contestId }),
   submit:    (attemptId, payload) => api.post(`/attempts/${attemptId}/submit`, payload),

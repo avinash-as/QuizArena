@@ -117,6 +117,11 @@ import ContestLobby   from '../pages/ContestLobby'
 import ContestDetail    from '../pages/ContestDetail'
 import ContestCountdown from '../pages/ContestCountdown'
 import ContestSubmitted from '../pages/ContestSubmitted'
+import RoomsHub    from '../pages/RoomsHub'
+import CreateRoom  from '../pages/CreateRoom'
+import RoomLobby   from '../pages/RoomLobby'
+import RoomPlay    from '../pages/RoomPlay'
+import RoomResult  from '../pages/RoomResult'
 import Quiz           from '../pages/Quiz'
 import QuizPlay       from '../pages/QuizPlay'
 import Result         from '../pages/Result'
@@ -169,6 +174,15 @@ export default function AppRoutes() {
           <Route path="/profile"         element={<Profile />} />
           <Route path="/dashboard"       element={<Dashboard />} />
           <Route path="/wallet"          element={<Wallet />} />
+
+          {/* Live Rooms — protected the same way /contests/:id is: a room
+              link for a not-logged-in user bounces to /login and Login.jsx
+              already returns them to location.state.from afterwards. */}
+          <Route path="/rooms"              element={<RoomsHub />} />
+          <Route path="/rooms/create"       element={<CreateRoom />} />
+          <Route path="/rooms/:code"        element={<RoomLobby />} />
+          <Route path="/rooms/:code/play"   element={<RoomPlay />} />
+          <Route path="/rooms/:code/result" element={<RoomResult />} />
         </Route>
 
         <Route element={<AdminRoute />}>
