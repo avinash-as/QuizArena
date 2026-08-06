@@ -60,7 +60,7 @@ export default function CreateRoom() {
     try {
       const payload = {
         ...form,
-        password: form.isPublic ? '' : form.password || undefined,
+        password: form.isPublic ? undefined : form.password,
         scheduledAt: form.scheduledAt || undefined,
       }
       const { data } = await roomAPI.create(payload)
