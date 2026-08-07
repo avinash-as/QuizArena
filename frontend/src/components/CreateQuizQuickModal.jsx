@@ -11,6 +11,7 @@ const blankQuestion = () => ({
 
 export default function CreateQuizQuickModal({ onClose, onCreated }) {
   const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('General Knowledge')
   const [questions, setQuestions] = useState([blankQuestion()])
   const [error, setError] = useState('')
   const [saving, setSaving] = useState(false)
@@ -29,12 +30,13 @@ export default function CreateQuizQuickModal({ onClose, onCreated }) {
   const handleSave = async () => {
     setError('')
     if (!title.trim()) return setError('Give the quiz a title')
+    if (!category.trim()) return setError('Give the quiz a category')
     if (questions.some(q => !q.text.trim() || q.options.some(o => !o.trim()))) {
       return setError('Fill in every question and all 4 options')
     }
     setSaving(true)
     try {
-      const { data } = await quizAPI.create({ title, questions })
+      const { data } = await quizAPI.create({ title, category, questions })
       onCreated(data.quiz)
     } catch (err) {
       setError(err.response?.data?.message || 'Could not save the quiz')
@@ -53,6 +55,13 @@ export default function CreateQuizQuickModal({ onClose, onCreated }) {
           placeholder="Quiz title"
           value={title}
           onChange={e => setTitle(e.target.value)}
+        />
+
+        <input
+          className="qa-input w-full"
+          placeholder="Category (e.g. General Knowledge, Science, Sports)"
+          value={category}
+          onChange={e => setCategory(e.target.value)}
         />
 
         {questions.map((q, qi) => (
