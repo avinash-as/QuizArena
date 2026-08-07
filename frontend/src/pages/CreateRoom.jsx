@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { roomAPI, quizAPI } from '../services/api'
+import CreateQuizQuickModal from '../components/CreateQuizQuickModal'
 
 const initialForm = {
   title: '',
@@ -43,6 +44,7 @@ export default function CreateRoom() {
   const [form, setForm] = useState(initialForm)
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [showQuizModal, setShowQuizModal] = useState(false)
 
   useEffect(() => {
     quizAPI.getAll({ limit: 100 }).then(r => setQuizzes(r.data.quizzes || [])).catch(() => {})
@@ -88,15 +90,31 @@ export default function CreateRoom() {
           <textarea className="qa-input w-full" rows={2} value={form.description} onChange={e => set('description')(e.target.value)} maxLength={500} />
         </div>
 
-        <div>
-          <label className="block text-xs font-semibold uppercase tracking-wide text-soft mb-1.5">Quiz</label>
-          <select className="qa-input w-full" value={form.quiz} onChange={e => set('quiz')(e.target.value)}>
-            <option value="">Select a quiz…</option>
-            {quizzes.map(q => (
-              <option key={q._id} value={q._id}>{q.title} ({q.totalQuestions} questions)</option>
-            ))}
-          </select>
-        </div>
+       <div>
+  <label className="block text-xs font-semibold uppercase tracking-wide text-soft mb-1.5">Quiz</label>
+  <div className="flex gap-2">
+    <select className="qa-input w-full" value={form.quiz} onChange={e => set('quiz')(e.target.value)}>
+      <option value="">Select a quiz…</option>
+      {quizzes.filter(q => q.totalQuestions > 0).map(q => (
+        <option key={q._id} value={q._id}>{q.title} ({q.totalQuestions} questions)</option>
+      ))}
+    </select>
+    <button type="button" onClick={() => setShowQuizModal(true)} className="btn-secondary shrink-0 whitespace-nowrap">
+      + New Quiz
+    </button>
+  </div>
+</div>
+
+{showQuizModal && (
+  <CreateQuizQuickModal
+    onClose={() => setShowQuizModal(false)}
+    onCreated={(newQuiz) => {
+      setQuizzes(q => [newQuiz, ...q])
+      set('quiz')(newQuiz._id)
+      setShowQuizModal(false)
+    }}
+  />
+)}
 
         <div className="grid grid-cols-2 gap-4">
           <div>
