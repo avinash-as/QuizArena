@@ -67,12 +67,6 @@ npm install
 npm run dev       # Starts on port 5173
 ```
 
-### 4. Login Credentials (after seed)
-
-| Role  | Email                  | Password  |
-|-------|------------------------|-----------|
-| Admin | admin@QuizPitara.io     | admin123  |
-| User  | test@QuizPitara.io      | test1234  |
 
 ---
 
